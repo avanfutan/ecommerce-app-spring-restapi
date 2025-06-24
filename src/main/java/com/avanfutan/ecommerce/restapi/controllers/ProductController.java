@@ -29,10 +29,10 @@ public class ProductController {
         } else {
             products = productRepository.findAllWithCategory();
         }
-       return products
-               .stream()
-               .map(productMapper::toDto)
-               .toList();
+        return products
+                .stream()
+                .map(productMapper::toDto)
+                .toList();
     }
 
     @PostMapping
@@ -54,8 +54,8 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ProductDto> updateProduct(
-        @PathVariable(name = "id") Long id,
-        @RequestBody ProductDto productDto) {
+            @PathVariable(name = "id") Long id,
+            @RequestBody ProductDto productDto) {
         var category = categoryRepository.findById(productDto.getCategoryId()).orElse(null);
         if (category == null) {
             return ResponseEntity.badRequest().build();

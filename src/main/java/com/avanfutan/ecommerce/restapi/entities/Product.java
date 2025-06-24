@@ -1,4 +1,5 @@
 package com.avanfutan.ecommerce.restapi.entities;
+
 import jakarta.persistence.*;
 import lombok.*;
 
